@@ -64,10 +64,14 @@ playerSprite.src = "unknown.png";
 const background = new Image();
 playerSprite.src = "background.png"
 
+function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH){
+    ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
+}
 
 
 function animate(){
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    ctx.drawSprite(playerSprite, 0, 0, player.width, player.height, 0, 0, player.width, player.height);
     requestAnimationFrame(animate);
 
 }
