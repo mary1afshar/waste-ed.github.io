@@ -92,7 +92,6 @@ setInterval(function(){
 
 window.addEventListener("keydown", function(e){
     keys[e.keyCode] = true;
-    player.moving = true;
 });
 window.addEventListener("keyup", function(e){
     delete keys[e.keyCode];
@@ -103,10 +102,12 @@ function movePlayer(){
     if(keys[37] && player.x > 0){
         player.x -= player.speed;
         player.frameY = 1
+        player.moving = true;
     }
     if(keys[39] && player.x < canvas.width - player.width){
         player.x += player.speed;
         player.frameY = 0
+        player.moving = true;
     }
 }
 
