@@ -61,5 +61,14 @@ const player = {
 const playerSprite = new Image();
 playerSprite.src = "unknown.png";
 
+const background = new Image();
+playerSprite.src = "background.png"
 
 
+
+function animate(){
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    requestAnimationFrame(animate);
+
+}
+animate();
