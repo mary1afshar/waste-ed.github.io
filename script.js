@@ -59,7 +59,7 @@ const playerSprite = new Image();
 playerSprite.src = "./images/spritesheet_turtle.png";
 
 const background = new Image();
-background.src = "green.png";
+background.src = "./images/background.png";
 
 // const playerSprite = new Image();
 // playerSprite.src = "unknown.png";
