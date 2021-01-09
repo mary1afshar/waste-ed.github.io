@@ -1,40 +1,43 @@
-*{
-    padding: 0;
-    margin: 0;
+
+body{
+    text-align: left;
+    left: 50px;
+	background: #daecd2;
+  font-family: sans-serif;
+  font-weight: 100;
 }
-#game{
-    width: 400px;
-    height: 500px;
-    border: 1px solid black;
-    margin: auto;
-    overflow: hidden;
+
+h1{
+  color: #396;
+  font-weight: 100;
+  font-size: 40px;
+  margin: 40px 0px 20px;
 }
-#block{
-    width: 50px;
-    height: 500px;
-    background-color: black;
-    position: relative;
-    left: 400px;
-    animation: block 2s infinite linear;
+
+#clockdiv{
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
 }
-@keyframes block{
-    0%{left:400px}
-    100%{left:-50px}
+
+#clockdiv > div{
+	padding: 10px;
+	border-radius: 10px;
+	background: #00BF96;
+	display: inline-block;
 }
-#hole{
-    width: 50px;
-    height: 150px;
-    background-color: white;
-    position: relative;
-    left: 400px;
-    top: -500px;
-    animation: block 2s infinite linear;
+
+#clockdiv div > span{
+	padding: 15px;
+	border-radius: 3px;
+	background: #00816A;
+	display: inline-block;
 }
-#character{
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    position: absolute;
-    top: 100px;
-    border-radius: 50%;
+
+.smalltext{
+	padding-top: 5px;
+	font-size: 16px;
 }
