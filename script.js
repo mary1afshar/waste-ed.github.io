@@ -45,9 +45,9 @@ const keys = []
 
 const player = {
     x: 50,
-    y: canvas.height - 64,
-    width: 64,
-    height: 64,
+    y: canvas.height - 96,
+    width: 96,
+    height: 96,
     frameX: 0,
     frameY: 0,
     speed: 9,
@@ -76,6 +76,7 @@ function animate(){
     // ctx.drawSprite(playerSprite, 0, 0, player.width, player.height, 0, 0);
     drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, player.width, player.height);
     movePlayer();
+    handlePlayerFrame();
     requestAnimationFrame(animate);
 }
 
@@ -83,9 +84,11 @@ animate();
 
 window.addEventListener("keydown", function(e){
     keys[e.keyCode] = true;
+    player.moving = true;
 });
 window.addEventListener("keyup", function(e){
     delete keys[e.keyCode];
+    player.moving = false;
 });
 
 function movePlayer(){
@@ -97,4 +100,9 @@ function movePlayer(){
         player.x += player.speed;
         player.frameY = 0
     }
+}
+
+function handlePlayerFrame(){
+    if(player.frameX < 3 && player.moving) player.frameX++
+    else player.frameX = 0;
 }
