@@ -52,19 +52,22 @@ const player = {
 };
 
 const background = new Image();
-background.src = "green.png"
+background.src = "green.png";
 
-const playerSprite = new Image();
-playerSprite.src = "unknown.png";
+// const playerSprite = new Image();
+// playerSprite.src = "unknown.png";
 
-function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH){
-    ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
+left_turtle0 = document.getElementById('left_turtle');
+
+function drawSprite(img, sX, sY, sW, sH, dX, dY){
+    ctx.drawImage(img, sX, sY, sW, sH, dX, dY);
 }
 
 
 function animate(){
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-    ctx.drawSprite(playerSprite, 0, 0, player.width, player.height, 0, 0, player.width, player.height);
+    // ctx.drawSprite(playerSprite, 0, 0, player.width, player.height, 0, 0);
+    ctx.drawImage(left_turtle0, 50, 50);
     requestAnimationFrame(animate);
 }
 
