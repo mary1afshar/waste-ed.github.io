@@ -38,11 +38,14 @@ const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width = 800;
 canvas.height = 500;
+
+
 const keys = []
 
+
 const player = {
-    x: 0,
-    y: 0,
+    x: 50,
+    y: 50,
     width: 448,
     height: 450,
     frameX: 0,
@@ -51,25 +54,44 @@ const player = {
     moving: false
 };
 
+const playerSprite = new Image();
+// left_turtle0 = document.getElementById('left_turtle');
+playerSprite.src = "unknown.png";
+
 const background = new Image();
 background.src = "green.png";
 
 // const playerSprite = new Image();
 // playerSprite.src = "unknown.png";
 
-left_turtle0 = document.getElementById('left_turtle');
-
-function drawSprite(img, sX, sY, sW, sH, dX, dY){
-    ctx.drawImage(img, sX, sY, sW, sH, dX, dY);
+function drawSprite(img, sX, sY, dX, dY){
+    ctx.drawImage(img, sX, sY, dX, dY);
 }
 
 
 function animate(){
+    ctx.clearRect(0,0,canvas.width, canvas.height);
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     // ctx.drawSprite(playerSprite, 0, 0, player.width, player.height, 0, 0);
-    ctx.drawImage(left_turtle0, 50, 50);
+    drawSprite(playerSprite, 0, 0, player.x, player.y);
+    movePlayer();
     requestAnimationFrame(animate);
 }
 
 animate();
 
+window.addEventListener("keydown", function(e){
+    keys[e.keyCode] = true;
+});
+window.addEventListener("keyup", function(e){
+    delete keys[e.keyCode];
+});
+
+function movePlayer(){
+    if(keys[37] && player.x > 0){
+        player.x -= player.speed;
+    }
+    if(keys[39] && player.x < canvas.width - player.width){
+        player.x += player.speed;
+    }
+}
