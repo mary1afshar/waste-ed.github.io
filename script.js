@@ -34,7 +34,7 @@ function getTimeRemaining(endtime) {
 
 
 const canvas = document.getElementById('canvas1');
-const ctx = canvas.getContext('2d')
+const ctx = canvas.getContext('2d');
 canvas.width = 800;
 canvas.height = 500;
 const keys = []
@@ -51,7 +51,7 @@ const player = {
 };
 
 const background = new Image();
-playerSprite.src = "green.png"
+background.src = "green.png"
 
 const playerSprite = new Image();
 playerSprite.src = "unknown.png";
