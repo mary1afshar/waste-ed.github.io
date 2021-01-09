@@ -46,8 +46,8 @@ const keys = []
 const player = {
     x: 50,
     y: 50,
-    width: 448,
-    height: 450,
+    width: 64,
+    height: 64,
     frameX: 0,
     frameY: 0,
     speed: 9,
@@ -56,7 +56,7 @@ const player = {
 
 const playerSprite = new Image();
 // left_turtle0 = document.getElementById('left_turtle');
-playerSprite.src = "unknown.png";
+playerSprite.src = "./images/left_turtle/left_turtle0.png";
 
 const background = new Image();
 background.src = "green.png";
@@ -64,16 +64,18 @@ background.src = "green.png";
 // const playerSprite = new Image();
 // playerSprite.src = "unknown.png";
 
-function drawSprite(img, sX, sY, dX, dY){
-    ctx.drawImage(img, sX, sY, dX, dY);
+function drawSprite(img, sX, sY, sW, sH){
+    ctx.drawImage(img, sX, sY, sW, sH);
+    
 }
+
 
 
 function animate(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     // ctx.drawSprite(playerSprite, 0, 0, player.width, player.height, 0, 0);
-    drawSprite(playerSprite, 0, 0, player.x, player.y);
+    drawSprite(playerSprite, player.x, player.y, player.width, player.height);
     movePlayer();
     requestAnimationFrame(animate);
 }
