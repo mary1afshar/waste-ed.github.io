@@ -58,11 +58,11 @@ const player = {
     moving: false
 };
 
+const background = new Image();
+playerSprite.src = "green.png"
+
 const playerSprite = new Image();
 playerSprite.src = "unknown.png";
-
-const background = new Image();
-playerSprite.src = "background.png"
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH){
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
