@@ -74,7 +74,7 @@ function animate(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     // ctx.drawSprite(playerSprite, 0, 0, player.width, player.height, 0, 0);
-    drawSprite(playerSprite, 0, 0, player.width, player.height, 0, 0, player.width, player.height);
+    drawSprite(playerSprite, 0, 0, player.width, player.height, player.x, player.y, player.width, player.height);
     movePlayer();
     requestAnimationFrame(animate);
 }
