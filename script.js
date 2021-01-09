@@ -74,7 +74,7 @@ function animate(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     // ctx.drawSprite(playerSprite, 0, 0, player.width, player.height, 0, 0);
-    drawSprite(playerSprite, 0, 0, player.width, player.height, player.x, player.y, player.width, player.height);
+    drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, player.width, player.height);
     movePlayer();
     requestAnimationFrame(animate);
 }
@@ -91,8 +91,10 @@ window.addEventListener("keyup", function(e){
 function movePlayer(){
     if(keys[37] && player.x > 0){
         player.x -= player.speed;
+        player.frameY = 1
     }
     if(keys[39] && player.x < canvas.width - player.width){
         player.x += player.speed;
+        player.frameY = 0
     }
 }
