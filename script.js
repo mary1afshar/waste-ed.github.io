@@ -9,6 +9,7 @@ function getTimeRemaining(endtime) {
     };
   }
   
+  /* timer */
   function initializeClock(id, endtime) {
     var clock = document.getElementById(id);
     var secondsSpan = clock.querySelector('.seconds');
@@ -32,7 +33,7 @@ function getTimeRemaining(endtime) {
 
   initializeClock('clockdiv', deadline);
 
-
+/*game*/
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width = 800;
@@ -65,7 +66,7 @@ function animate(){
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     ctx.drawSprite(playerSprite, 0, 0, player.width, player.height, 0, 0, player.width, player.height);
     requestAnimationFrame(animate);
-
 }
+
 animate();
 
