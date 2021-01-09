@@ -50,8 +50,8 @@ const keys = []
 const player = {
     x: 0,
     y: 0,
-    width: ???,
-    height: ???,
+    width: 448,
+    height: 450,
     frameX: 0,
     frameY: 0,
     speed: 9,
@@ -59,5 +59,7 @@ const player = {
 };
 
 const playerSprite = new Image();
-playerSprite.src = "...";
+playerSprite.src = "unknown.png";
+
+
 
