@@ -68,7 +68,6 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH){
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
 }
 
-
 setInterval(function(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
@@ -118,43 +117,23 @@ function handlePlayerFrame(){
 
 
 
-// load recycleble objects' images
-// let arRecycle = image("./images/waterbottle"+'.png'); // to differentiate different waterbottles
+let objectX = 0, objectY = 0, objectDy = 5; // Dy is change in y
 
-
-/*
-function recycleFall(){
-    // for (let z = 0; z<2; z++){
-    // lower by 100 px the recycleble object if it's above the canvas height
-    if(arRecycleY > canvas.height){
-        arRecycleY = -100;
-        arRecycleX = random(30, canvas.width-30);
-        arRecycleDy = random(1,3);
-    } else { // or else just move down the object by the Dy
-        arRecycleY += arRecycleDy;
-    }
-    var x = document.getElementById("water_bottle");
-    ctx.drawImage(x, arRecycleX, arRecycleY);
-    console.log(arRecycleY);
-    
-}
-*/
-
-let arRecycleX = 0, arRecycleY = 0, arRecycleDy = 5; // Dy is change in y
 setInterval(function(){
-    // initialze (x, y) and falling speed for two Recyclebles
-    // the recyclebles
-
-    if(arRecycleY > canvas.height){
-        arRecycleY = -100;
-        arRecycleX = Math.random() * canvas.width-30;
-        arRecycleDy = 2 + Math.random() * 5;
+    // initialze (x, y) and falling speed for two Recyclables
+    // the recyclables
+  
+    if(objectY > canvas.height){
+        objectY = -100;
+        objectX = Math.random() * canvas.width-30;
+        objectDy = 2 + Math.random() * 5;
     } else { // or else just move down the object by the Dy
-        arRecycleY += arRecycleDy;
+        objectY += objectDy;
     }
-    var x = document.getElementById("water_bottle");
-    ctx.drawImage(x, arRecycleX, arRecycleY);
-    console.log(arRecycleX);
-    console.log(arRecycleDy);
+
+    let bottle = document.getElementById("water_bottle");
+    ctx.drawImage(bottle, objectX, objectY);
+
     
 }, 50);
+
