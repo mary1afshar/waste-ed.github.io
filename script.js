@@ -127,7 +127,7 @@ function startGame () {
   for(let l = 0; l < 6; l++){
     objectY[l] = -100;
     objectX[l] = Math.random() * canvas.width-60;
-    objectDy[l] = Math.random() * 5;
+    objectDy[l] = 1.5 + Math.random() * 5;
   }
 }
 
