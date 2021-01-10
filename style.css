@@ -8,11 +8,19 @@ body{
 
 h1{
   color: #396;
-  font-weight: 100;
-  font-size: 40px;
+  font-family: arial;
+  font-weight: 80px;
+  font-size: 20px;
   margin: 40px 0px 20px;
 }
 
+h2{
+    position: relative;
+    text-align: center;
+    color: #00816A;
+    font-family:'Arial Narrow Bold', sans-serif;
+    font-size: 20px ;
+}
 
 #canvas1{
     width: 800px;
@@ -74,7 +82,7 @@ h1{
 .popup {
     position: relative;
     margin-right: 0px;
-    top: 0px;
+    top: -10px;
     background-color: #00BF96;
     border: none;
     color: white;
