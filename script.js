@@ -23,7 +23,8 @@ function initializeClock(id, endtime) {
 
         if (t.total <= -1) {
             clearInterval(timeinterval);
-            alert('counter ended!');
+            alert('Game Ended! Click "OK" to play again.');
+            location.reload();
         }
     }
 
