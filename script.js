@@ -23,7 +23,8 @@ function initializeClock(id, endtime) {
 
         if (t.total <= -1) {
             clearInterval(timeinterval);
-            alert('counter ended!');
+            alert('Game Ended! Click "OK" to play again.');
+            location.reload();
         }
     }
 
@@ -31,7 +32,7 @@ function initializeClock(id, endtime) {
     var timeinterval = setInterval(updateClock, 1000);
   }
   
-  var deadline = new Date(Date.parse(new Date()) +  30 * 1000);
+  var deadline = new Date(Date.parse(new Date()) +  45 * 1000);
 
 initializeClock('clockdiv', deadline);
 
@@ -157,6 +158,7 @@ setInterval(function () {
                 score -= 10;
             }
             console.log(score);
+            document.getElementById("score").innerHTML = score;
         }
 
         ctx.drawImage(object[i], objectX[i], objectY[i]);
@@ -173,4 +175,3 @@ function turtleHit(nX, nY, nW, nH) {
   }
 
  
-
