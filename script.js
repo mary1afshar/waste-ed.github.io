@@ -153,3 +153,10 @@ setInterval(function(){
     
 }, 50);
 
+function turtleHit(nX, nY, nW, nH) {
+    if (nX >= player.x && nX <= (player.x + 100) && (nY + nH) >= player.y && nY <= player.y) {
+      return true;
+    } else {
+      return false;
+    }
+  }
