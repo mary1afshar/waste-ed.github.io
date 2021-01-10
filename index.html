@@ -1,60 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>waste-ed</title>
+    <title>Waste-ED</title>
     <link rel="shortcut icon" type="image/png" href="unknown.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h2>welcome to waste-ed (waste education)</h2>
+    <h2>Welcome to Waste-ED</h2>
 
-    <p>
-
-    </p>
-    <div class="popup" onclick="myFunction()">Click here for instructions!
-        <span class="popuptext" id="myPopup">Welcome to Waste-Ed!
-            You are given 45 seconds to put the recycleble items falling from the sky in the recycling 
-            bin, this will add 5 points to your score. Remember not to collect the non-recycled objects, your
-            score will decrease by 10 points. 
-            Try to beat your score!
-        </span>
-      </div>
-      <p></p>
-
-      
-      <script>
-      // When the user clicks on div, open the popup
-      function myFunction() {
-        var popup = document.getElementById("myPopup");
-        popup.classList.toggle("show");
-      }
-      </script>
-      
-    <h1>Timer</h1>
+    <div class="status-container">
+        <h1>Timer</h1>
         <div id="clockdiv">
-        <div>
-            <span class="seconds"></span>
-            <div class="smalltext">Seconds</div>
+            <div>
+                <span class="seconds"></span>
+                <div class="smalltext">Seconds</div>
+            </div>
         </div>
-        </div>
+
         <h1>Score</h1>
         <div id="clockdiv">
             <div>
                 <p id="score"> 0 </p>
-                
             </div>
-            </div>
-
-
-    
-    
+        </div>
     </div>
 
     <canvas id="canvas1">
-        <img id="turtle" src="./images/spritesheet_turtle.png"/>
+        <img id="turtle" src="./images/spritesheet_turtle.png" />
         <img id="water_bottle" src="./images/fall_objects/object_bottle.png">
         <img id="plastic_bag" src="./images/fall_objects/object_bag.png">
         <img id="messy_can" src="./images/fall_objects/object_can_messy.png">
@@ -63,7 +40,46 @@
         <img id="banana" src="./images/fall_objects/object_banana.png">
 
     </canvas>
+
+    <button id="open">
+        Click me for instructions
+    </button>
+    <div id="modal-container">
+        <div class="modal">
+            <h1>🥫 Welcome to Waste-ED (Waste Education)</h1>
+            <br>
+            <p>
+                You have 30 seconds to put the recyclable items falling from the sky in the recycling
+                bin, this will add 5 points to your score. <br><br> Remember not to collect the non-recycled objects, your
+                score will decrease by 10 points. <br><br>
+                Try to beat your score!
+            </p>
+            <br>
+            <br>
+            <button id="close">
+                Close me
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const open = document.getElementById("open");
+        const container = document.getElementById("modal-container");
+        const close = document.getElementById("close");
+        
+        open.addEventListener('click', () => {
+            container.classList.add('show');
+        });
+
+        close.addEventListener('click', () => {
+            container.classList.remove('show');
+        });
+
+    </script>
+
+    
     <script src="script.js"></script>
 
 </body>
+
 </html>
