@@ -77,17 +77,6 @@ setInterval(function(){
     handlePlayerFrame();
 }, 50);
 
-// function animate(){
-//     ctx.clearRect(0,0,canvas.width, canvas.height);
-//     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-//     // ctx.drawSprite(playerSprite, 0, 0, player.width, player.height, 0, 0);
-//     drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, player.width, player.height);
-//     movePlayer();
-//     handlePlayerFrame();
-//     requestAnimationFrame(animate);
-// }
-
-// animate();
 
 window.addEventListener("keydown", function(e){
     keys[e.keyCode] = true;
@@ -116,24 +105,63 @@ function handlePlayerFrame(){
 }
 
 
+// object images declaration
+// let bottle = document.getElementById("water_bottle");
+// let bag = document.getElementById("plastic_bag");
+// let messy_can = document.getElementById("messy_can");
+// let can = document.getElementById("can");
+// let battery = document.getElementById("battery");
+// let banana = document.getElementById("banana");
 
-let objectX = 0, objectY = 0, objectDy = 5; // Dy is change in y
+const bottle = new Image();
+bottle.src = "./images/fall_objects/object_bottle.png";
+
+const bag = new Image();
+bag.src = "./images/fall_objects/object_bag.png";
+
+const messy_can = new Image();
+messy_can.src = "./images/fall_objects/object_can_messy.png";
+
+const can = new Image();
+can.src = "./images/fall_objects/object_can.png";
+
+const battery = new Image();
+battery.src = "./images/fall_objects/object_battery.png";
+
+const banana = new Image();
+banana.src = "./images/fall_objects/object_banana.png";
+
+
+let objectX = [], objectY = [], objectDy = []; // Dy is change in y
+let object = [bottle, bag, can, messy_can, banana, battery]; 
+
+// Call before objects fall
+function startGame () {
+  for(let l = 0; l < 6; l++){
+    objectY[l] = -100;
+    objectX[l] = Math.random() * canvas.width-30;
+    objectDy[l] = 2 + Math.random() * 5;
+  }
+}
+
+startGame();
 
 setInterval(function(){
-    // initialze (x, y) and falling speed for two Recyclables
+
+    // initialze (x, y) and falling speed for two recyclables
     // the recyclables
-  
-    if(objectY > canvas.height){
-        objectY = -100;
-        objectX = Math.random() * canvas.width-30;
-        objectDy = 2 + Math.random() * 5;
+    for (let i=0; i < 6; i++){
+    if(objectY[i] > canvas.height){
+        objectY[i] = -100;
+        objectX[i] = Math.random() * canvas.width-30;
+        objectDy[i] = 2 + Math.random() * 5;
     } else { // or else just move down the object by the Dy
-        objectY += objectDy;
+        objectY[i] += objectDy[i];
     }
 
-    let bottle = document.getElementById("water_bottle");
-    ctx.drawImage(bottle, objectX, objectY);
-
+    ctx.drawImage(object[i], objectX[i], objectY[i]);
+    console.log(objectY[i]);
+  }
     
 }, 50);
 
