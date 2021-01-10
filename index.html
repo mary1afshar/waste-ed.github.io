@@ -6,6 +6,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+
+    <p>
+
+    </p>
+    <div class="popup" onclick="myFunction()">menu
+        <span class="popuptext" id="myPopup">Welcome to Wast-Ed!
+            You are given 60 seconds to put the water bottles in the recycling 
+            bin. Remember not to collect the non-recycled objects. 
+            Try to beat your score!
+        </span>
+      </div>
+      <p></p>
+
+      <div class="popup" onclick="myFunction()"> pause</div>
+      
+      <script>
+      // When the user clicks on div, open the popup
+      function myFunction() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+      }
+      </script>
+      
     <h1>Timer</h1>
         <div id="clockdiv">
         <div>
@@ -14,6 +38,7 @@
         </div>
         </div>
         <h1>Score</h1>
+    
         
        
         
