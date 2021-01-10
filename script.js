@@ -29,7 +29,7 @@ function getTimeRemaining(endtime) {
     var timeinterval = setInterval(updateClock, 1000);
   }
   
-  var deadline = new Date(Date.parse(new Date()) +  120 * 1000);
+  var deadline = new Date(Date.parse(new Date()) +  30 * 1000);
 
   initializeClock('clockdiv', deadline);
 
@@ -160,3 +160,6 @@ function turtleHit(nX, nY, nW, nH) {
       return false;
     }
   }
+
+ 
+
