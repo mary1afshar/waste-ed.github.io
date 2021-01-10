@@ -77,10 +77,11 @@ setInterval(function(){
     handlePlayerFrame();
 }, 50);
 
-
+// Keyboard listeners
 window.addEventListener("keydown", function(e){
     keys[e.keyCode] = true;
 });
+
 window.addEventListener("keyup", function(e){
     delete keys[e.keyCode];
     player.moving = false;
@@ -104,33 +105,19 @@ function handlePlayerFrame(){
     else player.frameX = 0;
 }
 
-
-// object images declaration
-// let bottle = document.getElementById("water_bottle");
-// let bag = document.getElementById("plastic_bag");
-// let messy_can = document.getElementById("messy_can");
-// let can = document.getElementById("can");
-// let battery = document.getElementById("battery");
-// let banana = document.getElementById("banana");
-
+// Falling objects declarations
 const bottle = new Image();
 bottle.src = "./images/fall_objects/object_bottle.png";
-
 const bag = new Image();
 bag.src = "./images/fall_objects/object_bag.png";
-
 const messy_can = new Image();
 messy_can.src = "./images/fall_objects/object_can_messy.png";
-
 const can = new Image();
 can.src = "./images/fall_objects/object_can.png";
-
 const battery = new Image();
 battery.src = "./images/fall_objects/object_battery.png";
-
 const banana = new Image();
 banana.src = "./images/fall_objects/object_banana.png";
-
 
 let objectX = [], objectY = [], objectDy = []; // Dy is change in y
 let object = [bottle, bag, can, messy_can, banana, battery]; 
@@ -139,13 +126,15 @@ let object = [bottle, bag, can, messy_can, banana, battery];
 function startGame () {
   for(let l = 0; l < 6; l++){
     objectY[l] = -100;
-    objectX[l] = Math.random() * canvas.width-30;
-    objectDy[l] = 2 + Math.random() * 5;
+    objectX[l] = Math.random() * canvas.width-60;
+    objectDy[l] = Math.random() * 5;
   }
 }
 
+// Initialize object specs
 startGame();
 
+// Loop objects falling
 setInterval(function(){
 
     // initialze (x, y) and falling speed for two recyclables
@@ -153,14 +142,13 @@ setInterval(function(){
     for (let i=0; i < 6; i++){
     if(objectY[i] > canvas.height){
         objectY[i] = -100;
-        objectX[i] = Math.random() * canvas.width-30;
+        objectX[i] = 30 + Math.random() * canvas.width-60;
         objectDy[i] = 2 + Math.random() * 5;
     } else { // or else just move down the object by the Dy
         objectY[i] += objectDy[i];
     }
 
     ctx.drawImage(object[i], objectX[i], objectY[i]);
-    console.log(objectY[i]);
   }
     
 }, 50);
