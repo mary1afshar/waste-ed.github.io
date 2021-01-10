@@ -115,3 +115,46 @@ function handlePlayerFrame(){
     if(player.frameX < 3 && player.moving) player.frameX++
     else player.frameX = 0;
 }
+
+
+
+// load recycleble objects' images
+// let arRecycle = image("./images/waterbottle"+'.png'); // to differentiate different waterbottles
+
+
+/*
+function recycleFall(){
+    // for (let z = 0; z<2; z++){
+    // lower by 100 px the recycleble object if it's above the canvas height
+    if(arRecycleY > canvas.height){
+        arRecycleY = -100;
+        arRecycleX = random(30, canvas.width-30);
+        arRecycleDy = random(1,3);
+    } else { // or else just move down the object by the Dy
+        arRecycleY += arRecycleDy;
+    }
+    var x = document.getElementById("water_bottle");
+    ctx.drawImage(x, arRecycleX, arRecycleY);
+    console.log(arRecycleY);
+    
+}
+*/
+
+let arRecycleX = 0, arRecycleY = 0, arRecycleDy = 5; // Dy is change in y
+setInterval(function(){
+    // initialze (x, y) and falling speed for two Recyclebles
+    // the recyclebles
+
+    if(arRecycleY > canvas.height){
+        arRecycleY = -100;
+        arRecycleX = Math.random() * canvas.width-30;
+        arRecycleDy = 2 + Math.random() * 5;
+    } else { // or else just move down the object by the Dy
+        arRecycleY += arRecycleDy;
+    }
+    var x = document.getElementById("water_bottle");
+    ctx.drawImage(x, arRecycleX, arRecycleY);
+    console.log(arRecycleX);
+    console.log(arRecycleDy);
+    
+}, 50);
