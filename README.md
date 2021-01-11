@@ -1,8 +1,6 @@
 # Waste-ed
 https://waste-ed.tech/
 
-Ready to get Waste Ed? SIKE get waste management education instead!
-
 # Mission
 Waste-ed (waste-education) is targeted towards children ages 6-13. Our goal is to educate children about sustainability and to encourage future citizens to maintain eco-friendly habits.
 
